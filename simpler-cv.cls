@@ -3,7 +3,11 @@
 \NeedsTeXFormat{LaTeX2e}
 \ProvidesClass{simpler-cv}[2019/05/20]
 
-\LoadClass[a4paper]{article}
+\DeclareOption*{%
+  \PassOptionsToClass{\CurrentOption}{article}
+}
+\ProcessOptions\relax
+\LoadClass{article}
 
 %%%%%%%%%%
 % Colors %
@@ -126,8 +130,8 @@
 \renewcommand{\bfseries}{\headingfont\color{headercolor}}
 
 \newenvironment{entrylist}{%
-    \begin{table}[htpb]
-        \begin{tabular}{p{0.2\textwidth}p{0.6\textwidth}r}
+    \begin{table}[ht!]
+        \begin{tabular}{p{0.2\textwidth}p{0.4\textwidth}l}
         }%
         {
         \end{tabular}
